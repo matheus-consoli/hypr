@@ -39,6 +39,7 @@ size = "25% 35%"
 max_size = "1920px 100%"
 margin = 50
 position = "22% 63%"
+lazy = true
 
 [scratchpads.easyeffects]
 animation = "fromBottom"
