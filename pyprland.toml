@@ -11,6 +11,7 @@ class = "org.telegram.desktop"
 size = "45% 75%"
 max_size = "1920px 100%"
 margin = 50
+lazy = true
 
 [scratchpads.slack]
 animation = "fromRight"
@@ -19,6 +20,7 @@ class = "Slack"
 size = "45% 75%"
 max_size = "1920px 100%"
 margin = 50
+lazy = true
 
 [scratchpads.spotify]
 animation = "fromTop"
@@ -27,15 +29,7 @@ class = "spotify"
 size = "75% 60%"
 max_size = "1920px 100%"
 margin = 50
-
-# [scratchpads.discord]
-# animation = "fromRight"
-# command = "discord"
-# class = "discord"
-# size = "45% 75%"
-# max_size = "1920px 100%"
-# margin = 50
-
+lazy = true
 
 # todo:
 # - ai chat
