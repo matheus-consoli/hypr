@@ -31,6 +31,23 @@ max_size = "1920px 100%"
 margin = 50
 lazy = true
 
+[scratchpads.pavucontrol]
+animation = "fromBottom"
+command = "pavucontrol"
+class = "org.pulseaudio.pavucontrol"
+size = "25% 35%"
+max_size = "1920px 100%"
+margin = 50
+position = "22% 63%"
+
+[scratchpads.easyeffects]
+animation = "fromBottom"
+command = "easyeffects"
+class = "com.github.wwmm.easyeffects"
+size = "25% 35%"
+max_size = "1920px 100%"
+margin = 50
+position = "48% 63%"
+
 # todo:
 # - ai chat
-# - audio settings
