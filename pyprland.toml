@@ -1,0 +1,42 @@
+[pyprland]
+plugins = [
+ "scratchpads",
+]
+
+
+[scratchpads.telegram]
+animation = "fromRight"
+command = "telegram-desktop"
+class = "org.telegram.desktop"
+size = "45% 75%"
+max_size = "1920px 100%"
+margin = 50
+
+[scratchpads.slack]
+animation = "fromRight"
+command = "slack"
+class = "Slack"
+size = "45% 75%"
+max_size = "1920px 100%"
+margin = 50
+
+[scratchpads.spotify]
+animation = "fromTop"
+command = "spotify"
+class = "spotify"
+size = "75% 60%"
+max_size = "1920px 100%"
+margin = 50
+
+# [scratchpads.discord]
+# animation = "fromRight"
+# command = "discord"
+# class = "discord"
+# size = "45% 75%"
+# max_size = "1920px 100%"
+# margin = 50
+
+
+# todo:
+# - ai chat
+# - audio settings
