@@ -50,5 +50,13 @@ max_size = "1920px 100%"
 margin = 50
 position = "48% 63%"
 
+[scratchpads.missioncenter]
+animation = "fromLeft"
+command = "missioncenter"
+class = "io.missioncenter.MissionCenter"
+size = "45% 95%"
+max_size = "1920px 100%"
+margin = 50
+
 # todo:
 # - ai chat
