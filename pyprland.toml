@@ -8,7 +8,7 @@ plugins = [
 animation = "fromRight"
 command = "telegram-desktop"
 class = "org.telegram.desktop"
-size = "45% 75%"
+size = "25% 85%"
 max_size = "1920px 100%"
 margin = 50
 lazy = true
@@ -26,34 +26,34 @@ lazy = true
 animation = "fromTop"
 command = "spotify"
 class = "spotify"
-size = "75% 60%"
+size = "50% 60%"
+margin = 10
 max_size = "1920px 100%"
-margin = 50
 lazy = true
 
 [scratchpads.pavucontrol]
 animation = "fromBottom"
 command = "pavucontrol"
 class = "org.pulseaudio.pavucontrol"
-size = "25% 35%"
+size = "30% 45%"
 max_size = "1920px 100%"
 margin = 50
-position = "22% 63%"
+position = "19% 54%"
 lazy = true
 
 [scratchpads.easyeffects]
 animation = "fromBottom"
 command = "easyeffects"
 class = "com.github.wwmm.easyeffects"
-size = "25% 35%"
+size = "30% 45%"
 max_size = "1920px 100%"
 margin = 50
-position = "48% 63%"
+position = "50% 54%"
 
-[scratchpads.missioncenter]
+[scratchpads.resources]
 animation = "fromLeft"
-command = "missioncenter"
-class = "io.missioncenter.MissionCenter"
+command = "resources"
+class = "net.nokyan.Resources"
 size = "45% 95%"
 max_size = "1920px 100%"
 margin = 50
