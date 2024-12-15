@@ -1,6 +1,8 @@
 [pyprland]
 plugins = [
- "scratchpads",
+  "scratchpads",
+  "expose",
+  "magnify",
 ]
 
 
@@ -27,7 +29,7 @@ animation = "fromTop"
 command = "spotify"
 class = "spotify"
 size = "50% 60%"
-margin = 10
+margin = 25
 max_size = "1920px 100%"
 lazy = true
 
