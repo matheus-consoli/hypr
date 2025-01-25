@@ -24,6 +24,14 @@ max_size = "1920px 100%"
 margin = 50
 lazy = true
 
+# [scratchpads.vesktop]
+# animation = "fromRight"
+# command = "vesktop"
+# class = "vesktop"
+# size = "45% 75%"
+# max_size = "1920px 100%"
+# margin = 50
+
 [scratchpads.spotify]
 animation = "fromTop"
 command = "spotify"
@@ -59,6 +67,13 @@ class = "net.nokyan.Resources"
 size = "45% 95%"
 max_size = "1920px 100%"
 margin = 50
+
+[scratchpads.term]
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
+margin = 50
+size = "55% 30%"
+max_size = "1920px 100%"
 
 # todo:
 # - ai chat
