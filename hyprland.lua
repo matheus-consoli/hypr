@@ -60,6 +60,7 @@ hl.on("hyprland.start", function()
     -- hl.exec_cmd("nm-applet")
     hl.exec_cmd("vicinae server")
     hl.exec_cmd("waybar")
+    hl.exec_cmd("swaync")
     hl.exec_cmd("hyprpaper") -- TODO: replace with swww
 end)
 
@@ -279,6 +280,8 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
+
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
@@ -389,6 +392,17 @@ hl.layer_rule({
     name = "vicinae-blur",
     blur = true,
     ignore_alpha = 1,
+})
+
+hl.layer_rule({
+    match        = { namespace = "swaync-control-center" },
+    blur         = true,
+    ignore_alpha = 0.5,
+})
+hl.layer_rule({
+    match        = { namespace = "swaync-notification-window" },
+    blur         = true,
+    ignore_alpha = 0.5,
 })
 
 -- Hyprland-run windowrule
