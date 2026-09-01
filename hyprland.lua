@@ -316,6 +316,44 @@ end
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
+--
+-- TELEGRAM
+--
+local TELEGRAM_CLASS = "telegram-desktop_telegram-desktop"
+local TELEGRAM_SPECIAL = "special:telegram"
+
+hl.workspace_rule({
+    workspace = TELEGRAM_SPECIAL,
+    on_created_empty = "telegram-desktop",
+})
+
+-- Telegram scratchpad window rule.
+hl.window_rule({
+    match = {
+        class = "^(" .. TELEGRAM_CLASS .. ")$",
+    },
+
+    name = "telegram-scratchpad",
+    workspace = TELEGRAM_SPECIAL,
+
+    float = true,
+    focus_on_activate = false,
+    stay_focused = false,
+
+    size = {
+        "monitor_w * 0.30",
+        "monitor_h * 0.95",
+    },
+
+    move = {
+        "window_w * 0.05",
+        "window_h * 0.05",
+    },
+})
+
+hl.bind(mainMod .. "+ T", hl.dsp.workspace.toggle_special("telegram"))
+
+
 hl.bind(mainMod .. " + space", function()
     hl.dispatch(hl.dsp.window.fullscreen({ action = "toggle" }))
 end)
