@@ -76,6 +76,9 @@ hl.env("XCURSOR_THEME", "GoogleDot-Black")
 hl.env("HYPRCURSOR_THEME", "GoogleDot-Black")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+hl.env("PATH", os.getenv("PATH") .. ":" .. os.getenv("HOME") .. "/.cargo/bin")
+hl.env("PATH", os.getenv("PATH") .. ":" .. os.getenv("HOME") .. "/.local/bin")
+
 
 -----------------------
 ----- PERMISSIONS -----
@@ -282,6 +285,7 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("vicinae toggle"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" -t ppm - | satty --filename - --copy-command wl-copy --early-exit'))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + return", hl.dsp.exec_cmd(terminal))
