@@ -141,10 +141,11 @@ hl.config({
         },
 
         blur             = {
-            enabled  = true,
-            size     = 3,
-            passes   = 1,
-            vibrancy = 0.1696,
+            enabled           = true,
+            size              = 8,
+            passes            = 3,
+            new_optimizations = true,
+            vibrancy          = 0.1696,
         },
     },
 
@@ -283,6 +284,8 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd("vicinae deeplink vicinae://launch/clipboard/history"))
+
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("swaync-client -t -sw"))
 
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" -t ppm - | satty --filename - --copy-command wl-copy --early-exit'))
@@ -433,7 +436,7 @@ hl.layer_rule({
     match = { namespace = "vicinae" },
     name = "vicinae-blur",
     blur = true,
-    ignore_alpha = 1,
+    ignore_alpha = 0,
 })
 
 hl.layer_rule({
