@@ -62,6 +62,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("swaync")
     hl.exec_cmd("hyprpaper") -- TODO: replace with swww
+    hl.exec_cmd("kdeconnectd")
 end)
 
 
@@ -112,8 +113,8 @@ hl.config({
         border_size      = 2,
 
         col              = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
+            active_border   = { colors = { "rgba(89b4faee)", "rgba(cba6f7ee)" }, angle = 45 },
+            inactive_border = "rgba(59595988)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -164,8 +165,10 @@ hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 -- Default springs
 hl.curve("easy", { type = "spring", mass = 1, stiffness = 238.1191, dampening = 24.21279333 })
 
+
 hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
+
+-- hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
 hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easy" })
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easy", style = "popin 87%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" })
@@ -316,8 +319,8 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 --
 -- TELEGRAM
@@ -344,18 +347,35 @@ hl.window_rule({
     stay_focused = false,
 
     size = {
-        "monitor_w * 0.30",
-        "monitor_h * 0.95",
+        "monitor_w * 0.25",
+        "monitor_h * 0.80",
     },
 
     move = {
-        "window_w * 0.05",
-        "window_h * 0.05",
+        "window_w * 0.02",
+        "window_h * 0.13",
     },
 })
 
 hl.bind(mainMod .. "+ T", hl.dsp.workspace.toggle_special("telegram"))
 
+-- SPOTIFY
+hl.workspace_rule({
+    workspace = "special:spotify",
+    on_created_empty =
+    "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf"
+})
+hl.window_rule({
+    match = { initial_title = "Spotify" },
+    workspace = "special:spotify",
+    float = true,
+    size = {
+        "monitor_w * 0.6",
+        "monitor_h * 0.68",
+    }
+})
+hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("spotify"))
+-- END SPOTIFY
 
 hl.bind(mainMod .. " + space", function()
     hl.dispatch(hl.dsp.window.fullscreen({ action = "toggle" }))
@@ -408,6 +428,23 @@ local suppressMaximizeRule = hl.window_rule({
     suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
+
+hl.window_rule({
+    name = "auto-float-pip",
+    match = {
+        title = "Picture-in-Picture",
+        class = "zen",
+    },
+    float = true,
+    size = {
+        "monitor_w * 0.20",
+        "monitor_h * 0.28",
+    },
+    move = {
+        "monitor_w - (monitor_w * 0.20) - 9",
+        "40",
+    }
+})
 
 hl.window_rule({
     -- Fix some dragging issues with XWayland
